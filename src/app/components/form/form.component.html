@@ -1,0 +1,19 @@
+<form
+  (submit)="createProject()"
+  class=" grid gap-y-4 "
+  [formGroup]="userForm"
+>
+  <app-input-text-floatlabel></app-input-text-floatlabel>
+  <div class="flex justify-end w-full">
+    <button
+      type="submit"
+      pButton
+      class="p-button-success"
+      [disabled]="userForm.invalid"
+    >
+      Create
+    </button>
+  </div>
+  <p-toast></p-toast>
+  <!-- <pre>{{ userForm.value | json }}</pre> -->
+</form>

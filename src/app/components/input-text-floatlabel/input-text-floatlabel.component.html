@@ -1,0 +1,52 @@
+<div [formGroup]="form" class="grid gap-y-6 justify-content-center">
+  <span formGroupName="basicInfo" class="p-float-label w-full">
+    <input
+      type="text"
+      id="projectName"
+      name="projectName"
+      pInputText
+      formControlName="projectName"
+      class="w-full"
+    />
+    <div *ngIf="form.get('basicInfo.projectName')?.hasError('minlength')">
+      Name must be at least 4 characters long.
+    </div>
+    <label htmlFor="projectName">Project Name</label>
+  </span>
+  <span formGroupName="basicInfo" class="p-float-label w-full">
+    <input
+      type="text"
+      pInputText
+      formControlName="customerName"
+      class="w-full"
+    />
+    <label htmlFor="customerName">Customer Name</label>
+  </span>
+  <span formGroupName="basicInfo" class="p-float-label w-full">
+    <textarea
+      type="text"
+      rows="3"
+      cols="30"
+      pInputTextarea
+      formControlName="projectDescription"
+      class="w-full"
+    ></textarea>
+    <label htmlFor="projectDescription">Project Description</label>
+  </span>
+  <span formGroupName="basicInfo" class="w-full flex">
+    <p-fileUpload
+      mode="basic"
+      chooseIcon="pi pi-folder-open p-button-success"
+      styleClass="p-button-success mr-4"
+      (onSelect)="onSelect($event)"
+      accept="image/*"
+      [maxFileSize]="1000000"
+      [auto]="true"
+    >
+    </p-fileUpload>
+    <span class="p-float-label w-full">
+      <input type="text" pInputText formControlName="folderPath" readonly />
+      <label htmlFor="folderPath">Folder Path</label></span
+    >
+  </span>
+</div>
